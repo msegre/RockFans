@@ -46,3 +46,4 @@ class TuyaCeilingFanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         data_schema=STEP_USER_SCHEMA,
         errors={},
     )
+)
