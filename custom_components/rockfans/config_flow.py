@@ -31,8 +31,7 @@ class TuyaCeilingFanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
 
    async def async_step_user(
-    self, user_input: dict[str, Any] | None = None
-) -> FlowResult:
+    self, user_input: dict[str, Any] | None = None) -> FlowResult:
     if user_input is not None:
         await self.async_set_unique_id(user_input[CONF_DEVICE_ID])
         self._abort_if_unique_id_configured()
@@ -46,4 +45,3 @@ class TuyaCeilingFanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         data_schema=STEP_USER_SCHEMA,
         errors={},
     )
-)
