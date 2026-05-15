@@ -30,33 +30,19 @@ class TuyaCeilingFanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    async def async_step_user(
-        self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
-        errors: dict[str, str] = {}
-
-        if user_input is not None:
-            # Test connectivity before accepting
-            client = TuyaClient(
-                ip=user_input[CONF_IP],
-                device_id=user_input[CONF_DEVICE_ID],
-                local_key=user_input[CONF_LOCAL_KEY],
-            )
-            dps = await self.hass.async_add_executor_job(client.get_status)
-            if dps is None:
-                errors["base"] = "cannot_connect"
-            else:
-                # Use device_id as unique ID to prevent duplicates
-                await self.async_set_unique_id(user_input[CONF_DEVICE_ID])
-                self._abort_if_unique_id_configured()
-
-                return self.async_create_entry(
-                    title=user_input[CONF_NAME],
-                    data=user_input,
-                )
-
-        return self.async_show_form(
-            step_id="user",
-            data_schema=STEP_USER_SCHEMA,
-            errors=errors,
+   async def async_step_user(
+    self, user_input: dict[str, Any] | None = None
+) -> FlowResult:
+    if user_input is not None:
+        await self.async_set_unique_id(user_input[CONF_DEVICE_ID])
+        self._abort_if_unique_id_configured()
+        return self.async_create_entry(
+            title=user_input[CONF_NAME],
+            data=user_input,
         )
+
+    return self.async_show_form(
+        step_id="user",
+        data_schema=STEP_USER_SCHEMA,
+        errors={},
+    )
