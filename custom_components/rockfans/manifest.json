@@ -1,10 +1,10 @@
 {
   "domain": "tuya_ceiling_fan",
   "name": "Tuya Ceiling Fan",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "config_flow": true,
-  "documentation": "https://github.com/home-assistant/home-assistant",
-  "requirements": [],
+  "documentation": "https://github.com/msegre/rockfans",
+  "requirements": ["tinytuya==1.15.0"],
   "dependencies": [],
   "codeowners": [],
   "iot_class": "local_polling"
