@@ -1,11 +1,12 @@
 {
   "domain": "tuya_ceiling_fan",
   "name": "Tuya Ceiling Fan",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "config_flow": true,
   "documentation": "https://github.com/msegre/rockfans",
   "requirements": ["tinytuya==1.15.0"],
   "dependencies": [],
   "codeowners": [],
   "iot_class": "local_polling"
+  "icon": "images/icon.png"
 }
