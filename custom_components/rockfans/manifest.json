@@ -1,7 +1,7 @@
 {
   "domain": "tuya_ceiling_fan",
   "name": "Tuya Ceiling Fan",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "config_flow": true,
   "documentation": "https://github.com/msegre/rockfans",
   "requirements": ["tinytuya==1.15.0"],
